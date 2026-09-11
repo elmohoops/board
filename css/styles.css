@@ -1,16 +1,17 @@
 :root {
   --cardinal: #7a1719;
   --cardinal-dark: #5e1113;
-  --gold: #d4af37;
   --text: #2f2f2f;
-  --muted: #666;
-  --card: #fff;
+  --card: #ffffff;
   --shadow: 0 6px 18px rgba(0, 0, 0, 0.14);
 }
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   background: transparent;
@@ -21,52 +22,15 @@ html, body {
 .board-app {
   width: min(980px, calc(100% - 28px));
   margin: 0 auto;
-  padding: 20px 0 28px;
-}
-
-.board-header {
-  text-align: center;
-  margin: 0 auto 24px;
-}
-
-.eyebrow {
-  margin: 0 0 6px;
-  color: var(--cardinal);
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.14em;
-}
-
-.board-header h1 {
-  margin: 0;
-  color: var(--cardinal);
-  font-size: clamp(2rem, 5vw, 3.2rem);
-  line-height: 1;
-  letter-spacing: 0.025em;
-  font-weight: 900;
-}
-
-.season {
-  margin: 8px 0 0;
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--text);
-}
-
-.gold-rule {
-  width: min(390px, 74%);
-  height: 4px;
-  margin: 14px auto 0;
-  border-radius: 999px;
-  background: var(--gold);
+  padding: 8px 0 24px;
 }
 
 .status {
-  margin: 28px auto;
+  margin: 20px auto;
   padding: 16px 18px;
   max-width: 560px;
   text-align: center;
-  background: rgba(255, 255, 255, 0.94);
+  background: rgba(255, 255, 255, 0.96);
   border-radius: 14px;
   box-shadow: var(--shadow);
   font-weight: 700;
@@ -85,7 +49,7 @@ html, body {
 
 .member-card {
   position: relative;
-  min-height: 150px;
+  min-height: 148px;
   padding: 24px 24px 22px;
   background: var(--card);
   border-radius: 16px;
@@ -149,11 +113,7 @@ html, body {
 @media (max-width: 650px) {
   .board-app {
     width: min(100% - 28px, 520px);
-    padding-top: 14px;
-  }
-
-  .board-header {
-    margin-bottom: 20px;
+    padding-top: 6px;
   }
 
   .board-grid {

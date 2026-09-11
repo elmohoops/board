@@ -1,6 +1,6 @@
 (() => {
-  function csvUrl(publishedId, sheetName) {
-    return `https://docs.google.com/spreadsheets/d/e/${publishedId}/pub?output=csv&sheet=${encodeURIComponent(sheetName)}`;
+  function gvizUrl(sheetId, sheetName) {
+    return `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(sheetName)}`;
   }
 
   function parseCsv(text) {
@@ -11,6 +11,7 @@
 
     for (let i = 0; i < text.length; i++) {
       const ch = text[i];
+
       if (inQuotes) {
         if (ch === '"') {
           if (text[i + 1] === '"') {
@@ -49,7 +50,9 @@
 
   function rowsToObjects(rows) {
     if (!rows.length) return [];
+
     const headers = rows[0].map(h => String(h).trim());
+
     return rows.slice(1).map(row => {
       const obj = {};
       headers.forEach((header, i) => {
@@ -59,13 +62,17 @@
     });
   }
 
-  async function fetchSheet(publishedId, sheetName) {
-    const response = await fetch(csvUrl(publishedId, sheetName), { cache: "no-store" });
+  async function fetchSheet(sheetId, sheetName) {
+    const response = await fetch(gvizUrl(sheetId, sheetName), {
+      cache: "no-store"
+    });
+
     if (!response.ok) {
       throw new Error(`Could not load "${sheetName}" (${response.status})`);
     }
 
     const text = await response.text();
+
     if (/^\s*<!doctype html/i.test(text) || /^\s*<html/i.test(text)) {
       throw new Error(`Google returned HTML instead of CSV for "${sheetName}".`);
     }

@@ -2,7 +2,13 @@
 
 Responsive GitHub Pages app for the El Modena Vanguard Basketball Booster Board.
 
-## Sheet structure
+This version uses the regular Google Sheets ID with the Google Visualization CSV endpoint, matching the approach used by the roster app.
+
+## Spreadsheet
+
+Sheet ID:
+
+`18N0En9F24DNYvaExxIMyYtRIeeOYt-18QtWzLPhH4bM`
 
 ### Board
 `Season | Order | Position | Name | Email`
@@ -15,32 +21,12 @@ with:
 
 Only Board rows matching `CurrentSeason` are displayed.
 
-## GitHub Pages
-
-1. Create a public repository such as `elmo-board`.
-2. Upload these files to the repository root.
-3. Commit to `main`.
-4. Open **Settings → Pages**.
-5. Choose **Deploy from a branch**.
-6. Choose `main` and `/ (root)`.
-
-Your site will then be similar to:
-
-`https://YOUR-USERNAME.github.io/elmo-board/`
-
 ## Wix
 
-Embed the GitHub Pages URL using Wix **Embed a Site**.
+The app intentionally contains no title/header. Add the **BOOSTER BOARD** heading and gold rule directly in Wix so the typography and spacing match the rest of the page.
 
-The app background is transparent so the Wix basketball-court background shows through.
+The iframe background is transparent.
 
-## Updating the board
+## Updating
 
-Normal yearly updates require no code changes:
-
-1. Add rows for the new season.
-2. Set `Season`.
-3. Use `Order` to control display sequence.
-4. Change `Configuration → CurrentSeason`.
-
-Blank email cells are automatically omitted from the cards.
+Normal board changes require no GitHub code edits. Update the spreadsheet rows and `Configuration → CurrentSeason`.

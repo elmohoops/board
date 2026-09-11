@@ -2,24 +2,21 @@
   const cfg = window.ELMO_BOARD_CONFIG;
   const statusEl = document.getElementById("status");
   const gridEl = document.getElementById("board-grid");
-  const seasonEl = document.getElementById("season");
 
-  function normalizeSeason(value) {
+  function normalize(value) {
     return String(value || "").trim();
-  }
-
-  function displaySeason(value) {
-    return normalizeSeason(value).replace("-", "–");
   }
 
   function getCurrentSeason(rows) {
     const match = rows.find(row =>
-      String(row.Key || "").trim().toLowerCase() === "currentseason"
+      normalize(row.Key).toLowerCase() === "currentseason"
     );
-    if (!match || !String(match.Value || "").trim()) {
+
+    if (!match || !normalize(match.Value)) {
       throw new Error('Configuration sheet is missing "CurrentSeason".');
     }
-    return normalizeSeason(match.Value);
+
+    return normalize(match.Value);
   }
 
   function orderValue(value) {
@@ -33,29 +30,31 @@
 
     const position = document.createElement("p");
     position.className = "position";
-    position.textContent = member.Position || "Board Member";
+    position.textContent = normalize(member.Position) || "Board Member";
 
     const name = document.createElement("h2");
     name.className = "name";
-    name.textContent = member.Name || "";
+    name.textContent = normalize(member.Name);
 
     article.append(position, name);
 
-    const emailText = String(member.Email || "").trim();
+    const emailText = normalize(member.Email);
     if (emailText) {
       const email = document.createElement("a");
       email.className = "email";
       email.href = `mailto:${emailText}`;
       email.textContent = emailText;
-      email.setAttribute("aria-label", `Email ${member.Name || "board member"} at ${emailText}`);
+      email.setAttribute(
+        "aria-label",
+        `Email ${normalize(member.Name) || "board member"} at ${emailText}`
+      );
       article.appendChild(email);
     }
 
     return article;
   }
 
-  function render(members, season) {
-    seasonEl.textContent = displaySeason(season);
+  function render(members) {
     gridEl.replaceChildren(...members.map(createCard));
     statusEl.hidden = true;
     gridEl.hidden = false;
@@ -66,27 +65,28 @@
     gridEl.hidden = true;
     statusEl.hidden = false;
     statusEl.classList.add("error");
-    statusEl.textContent = "Booster Board information is temporarily unavailable. Please try again later.";
+    statusEl.textContent =
+      "Booster Board information is temporarily unavailable. Please try again later.";
   }
 
   async function start() {
     try {
       const [configuration, board] = await Promise.all([
-        ElmoSheets.fetchSheet(cfg.PUBLISHED_ID, cfg.CONFIG_SHEET),
-        ElmoSheets.fetchSheet(cfg.PUBLISHED_ID, cfg.BOARD_SHEET)
+        ElmoSheets.fetchSheet(cfg.SHEET_ID, cfg.CONFIG_SHEET),
+        ElmoSheets.fetchSheet(cfg.SHEET_ID, cfg.BOARD_SHEET)
       ]);
 
       const currentSeason = getCurrentSeason(configuration);
 
       const members = board
-        .filter(row => normalizeSeason(row.Season) === currentSeason)
+        .filter(row => normalize(row.Season) === currentSeason)
         .sort((a, b) => orderValue(a.Order) - orderValue(b.Order));
 
       if (!members.length) {
         throw new Error(`No Booster Board rows found for ${currentSeason}.`);
       }
 
-      render(members, currentSeason);
+      render(members);
     } catch (error) {
       showError(error);
     }

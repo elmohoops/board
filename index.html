@@ -1,1 +1,30 @@
-hello world!
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>El Modena Booster Board</title>
+  <meta name="description" content="El Modena Vanguard Basketball Booster Board">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <main class="board-app">
+    <header class="board-header">
+      <p class="eyebrow">EL MODENA VANGUARDS</p>
+      <h1>BOOSTER BOARD</h1>
+      <p id="season" class="season" aria-live="polite"></p>
+      <div class="gold-rule" aria-hidden="true"></div>
+    </header>
+
+    <section id="status" class="status" aria-live="polite">
+      Loading booster board…
+    </section>
+
+    <section id="board-grid" class="board-grid" aria-label="Booster Board members" hidden></section>
+  </main>
+
+  <script src="js/config.js"></script>
+  <script src="js/sheets.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

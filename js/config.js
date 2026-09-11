@@ -1,0 +1,5 @@
+window.ELMO_BOARD_CONFIG = {
+  PUBLISHED_ID: "2PACX-1vQ7QFzuT6fWdyIHm3psnr91uB1n6Jvz-pLPmSY5xZujETitp8UJjddbWdEIuFhJb2yZTLDpj44RS989",
+  BOARD_SHEET: "Board",
+  CONFIG_SHEET: "Configuration"
+};

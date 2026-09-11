@@ -49,8 +49,8 @@ body {
 
 .member-card {
   position: relative;
-  min-height: 148px;
-  padding: 24px 24px 22px;
+  min-height: 128px;
+  padding: 19px 24px 18px;
   background: var(--card);
   border-radius: 16px;
   border-top: 6px solid var(--cardinal);
@@ -73,7 +73,7 @@ body {
 .position {
   position: relative;
   z-index: 1;
-  margin: 0 0 14px;
+  margin: 0 0 10px;
   color: var(--cardinal);
   font-size: 0.86rem;
   font-weight: 900;

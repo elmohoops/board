@@ -1,10 +1,10 @@
 # El Modena Booster Board
 
 Responsive Booster Board directory application for the El Modena
-Vanguard Boys Basketball website.
+Vanguards Boys Basketball website.
 
 The application is hosted with GitHub Pages and embedded into the main
-ElMoHoops Wix website. Booster Board member information and the current
+ELMO Hoops Wix website. Booster Board member information and the current
 season are maintained in Google Sheets.
 
 ## Live Sites
@@ -22,7 +22,7 @@ inside the Wix website rather than used as a standalone website.
 
 ## Architecture
 
-The ElMoHoops website uses three primary services.
+The ELMO Hoops website uses three primary services.
 
 ### Wix
 
@@ -246,7 +246,7 @@ The application:
 ## Board Card Design
 
 The application uses a responsive card layout designed to match the
-visual style of the ElMoHoops website.
+visual style of the ELMO Hoops website.
 
 Cards use:
 
@@ -347,7 +347,7 @@ Recommended workflow:
 6.  Commit the tested changes to `main`.
 7.  Allow GitHub Pages to redeploy.
 8.  Verify the production GitHub Pages application.
-9.  Verify the Booster Board section on ElMoHoops.org.
+9.  Verify the Booster Board section on ELMOHoops.org.
 
 For significant stable releases, create a Git tag/release.
 
@@ -419,9 +419,9 @@ Do not share a common GitHub username/password between website managers.
 The outgoing Website Manager should ensure that the incoming Website
 Manager has access to:
 
--   ElMoHoops Wix website
--   ElMoHoops GitHub organization
--   ElMoHoops Google account and Booster Board spreadsheet
+-   ELMO Hoops Wix website
+-   ELMO Hoops GitHub organization
+-   ELMO Hoops Google account and Booster Board spreadsheet
 -   Any other program accounts required to maintain the website
 
 ## Related Applications

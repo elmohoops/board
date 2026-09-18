@@ -15,7 +15,7 @@ https://www.elmohoops.org/
 
 Booster Board application:
 
-https://elmohoops.github.io/board/
+https://elmohoops.github.io/boosters/
 
 The GitHub Pages application is intended primarily to be displayed
 inside the Wix website rather than used as a standalone website.
@@ -53,7 +53,8 @@ Repositories:
 
 -   `schedule` - Game and event schedule
 -   `rosters` - Team rosters and coaching staffs
--   `board` - Booster Board directory
+-   `boosters` - Booster Board directory
+-   `sponsors` - Sponsor carousel
 
 Each application is hosted using GitHub Pages.
 
@@ -212,7 +213,7 @@ If Board information stops loading, check:
 ## Repository Structure
 
 ``` text
-board/
+boosters/
 ├── css/
 │   └── styles.css
 ├── js/
@@ -243,7 +244,7 @@ The application:
 5.  Renders a card for each Board member.
 6.  Adds a clickable email link only when an email address is present.
 
-## Board Card Design
+## Booster Card Design
 
 The application uses a responsive card layout designed to match the
 visual style of the ELMO Hoops website.
@@ -272,7 +273,7 @@ Information page.
 
 GitHub Pages URL:
 
-https://elmohoops.github.io/board/
+https://elmohoops.github.io/boosters/
 
 Wix owns the surrounding page content, including:
 
@@ -313,7 +314,7 @@ The application currently supports:
 -   GitHub Pages hosting
 -   Wix iframe embedding
 
-## Making Routine Board Changes
+## Making Routine Booster Board Changes
 
 Most Booster Board changes DO NOT require changes to GitHub.
 
@@ -375,7 +376,7 @@ Check that:
 -   Season values match `CurrentSeason` exactly.
 -   The Board tab's column headings have not changed.
 
-### Board members appear in the wrong order
+### Booster Board members appear in the wrong order
 
 Check the numeric `Order` values in the Google Sheet.
 
@@ -385,7 +386,7 @@ Check whether the Email field contains an address.
 
 Blank Email fields are intentionally omitted from the rendered card.
 
-### Board cards are cut off in Wix
+### Booster Board cards are cut off in Wix
 
 Increase the Wix iframe height.
 

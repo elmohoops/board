@@ -1,0 +1,137 @@
+:root {
+  --cardinal: #7a1719;
+  --cardinal-dark: #5e1113;
+  --text: #2f2f2f;
+  --card: #ffffff;
+  --shadow: 0 6px 18px rgba(0, 0, 0, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.board-app {
+  width: min(980px, calc(100% - 28px));
+  margin: 0 auto;
+  padding: 8px 0 24px;
+}
+
+.status {
+  margin: 20px auto;
+  padding: 16px 18px;
+  max-width: 560px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.96);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  font-weight: 700;
+}
+
+.status.error {
+  border: 2px solid var(--cardinal);
+  color: var(--cardinal-dark);
+}
+
+.board-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.member-card {
+  position: relative;
+  min-height: 128px;
+  padding: 19px 24px 18px;
+  background: var(--card);
+  border-radius: 16px;
+  border-top: 6px solid var(--cardinal);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.member-card::after {
+  content: "";
+  position: absolute;
+  right: -34px;
+  bottom: -50px;
+  width: 132px;
+  height: 132px;
+  border: 18px solid rgba(122, 23, 25, 0.045);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.position {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 10px;
+  color: var(--cardinal);
+  font-size: 0.86rem;
+  font-weight: 900;
+  letter-spacing: 0.045em;
+  text-transform: uppercase;
+}
+
+.name {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  color: var(--text);
+  font-size: 1.45rem;
+  line-height: 1.2;
+  font-weight: 800;
+}
+
+.email {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  margin-top: 12px;
+  color: var(--cardinal);
+  font-size: 0.95rem;
+  line-height: 1.35;
+  font-weight: 700;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  overflow-wrap: anywhere;
+}
+
+.email:hover,
+.email:focus-visible {
+  color: var(--cardinal-dark);
+}
+
+@media (max-width: 650px) {
+  .board-app {
+    width: min(100% - 28px, 520px);
+    padding-top: 6px;
+  }
+
+  .board-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .member-card {
+    min-height: 0;
+    padding: 20px 19px 19px;
+    border-radius: 15px;
+  }
+
+  .position {
+    margin-bottom: 10px;
+  }
+
+  .name {
+    font-size: 1.3rem;
+  }
+}
